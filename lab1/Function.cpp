@@ -27,10 +27,7 @@ void CreateFile(string name) {
 			{
 				break;
 			}
-			inFile << line;
-			if (!inFile.eof()) {
-				inFile << '\n';
-			}
+			inFile << line << '\n';
 		}
 	}
 	inFile.close();
