@@ -1,13 +1,10 @@
 #include "Function.h"
 
-
-
-
 char ChooseFilemode() {
     char res;
     do
     {
-    cout << "click 1 to overwrite file or 2 to append it :"; cin >> res;
+    cout << "click 1 to overwrite file or 2 to append it: "; cin >> res;
     } while (res!='1' && res != '2');
 
     return res;
@@ -55,16 +52,15 @@ void createFile(string name,char filemode) {
 
 bool isBad(Product tovar) {
     
-    bool res = false;
     CTime current = CTime::GetCurrentTime();
     CTime end(tovar.end.year, tovar.end.month, tovar.end.day, 0, 0, 0);
     CTimeSpan diff = end - current;
     int days = diff.GetDays();
     if (days<0)
     {
-        res = true;
+        return true;
     }
-    return res;
+    return false;
 }
 bool SoonIsBad(Product tovar) {
     bool res = false;
@@ -170,7 +166,7 @@ void deleteExpired(string name) {
     Product tovar;
     while (FileIn.read((char*)&tovar, sizeof(Product)))
     {
-        if (isBad(tovar)==false) {
+        if (!isBad(tovar)) {
             buff.push_back(tovar);
         }
     }
