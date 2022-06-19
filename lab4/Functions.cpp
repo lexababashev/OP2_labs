@@ -14,26 +14,25 @@ Line::Line()
 {
 	a = 1;
 	b = -1;
-	c = 0;
+	c = 1;
 	Radian = M_PI / 4;
 	Degrees = 45;
-	this->k = tan(Radian);
+	k = tan(Radian);
+
 
 }
 
-Line::Line(int c)
+Line::Line(Line& copyClass)
 {
-	a = 1;
-	b = 1;
-	this->c = c;
-	Radian = 3 * M_PI / 4;
-	Degrees = 135;
-
-	this->k = tan(Radian);
-
+	this->a = copyClass.get_a();
+	this->b = copyClass.get_b();
+	this->c = copyClass.get_c();
+	this->Radian = copyClass.get_Radian();
+	this ->Degrees = copyClass.get_Degrees();
+	this->k = copyClass.get_k();
 }
 
-Line::Line(int a, int b, int c)
+Line::Line(double a, double b, double c)
 {
 	this->a = a;
 	this->b = b;
@@ -41,60 +40,61 @@ Line::Line(int a, int b, int c)
 
 	if (b==0)
 	{
-		Radian = M_PI / 2;
-		Degrees = 90;
-		this->k = 0;
+		this->Radian = M_PI / 2;
+		this->Degrees = 90;
+		this->k = 1;
 
 	}
 	else {
 		Radian = atan((double)(-a) / (double)b);
 		Degrees = RadianToDegrees();
-
 		this->k = tan(Radian);
 
 	}
 
+
+
 }
 
-int Line::Ox() {
-	int x;
-	if (a==0)
-	{
-		cout << " the line lies on Ox or parallel to the axis! "<<'\n';
-		return 0;
-	}
-	else {
-		x = -(c/a);
-		return x;
-	}
+double Line::Ox() {
+
+
+		if (c == 0) {
+			return 0;
+		}
+		else {
+			return -(c / a);
+		}
+	
 }
-int Line::Oy() {
-	int y;
-	if (b==0)
-	{
+double Line::Oy() {
+
+
+		if (c == 0) {
+			return 0;
+		}
+		else {
+			return -(c / b);
+		}
 		
-		cout << " the line lies on Oy or parallel to the axis! " << '\n';
-		return 0;
-	}
-	else {
-		y = -(c / b);
-		return y;
-	}
 
 }
 
  void Line::operator++()
 {
-	this->Degrees += 1;
+	this->Degrees -= 1;
 	Radian = DegreesToRadian();
 
 	this->k = tan(Radian);
-
+	if (c!=0)
+	{
+		this->a = c / k;
+	}
 }
 
 bool Line::operator||(Line lineToCheckWith)
 {
-	if (this->a == lineToCheckWith.get_a() && this->b == lineToCheckWith.get_b())
+	if (this->a/lineToCheckWith.get_a() == this->b/lineToCheckWith.get_b())
 	{
 		return true;
 	}
@@ -103,13 +103,13 @@ bool Line::operator||(Line lineToCheckWith)
 	}
 }
 
-int Line::get_a() {
+double Line::get_a() {
 	return a;
 }
-int Line::get_b() {
+double Line::get_b() {
 	return b;
 }
-int Line::get_c() {
+double Line::get_c() {
 	return c;
 }
 double Line::get_k() {

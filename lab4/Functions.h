@@ -12,34 +12,31 @@ class Line
 {
 public:
 	Line();
-	Line(int);
-	Line(int, int, int);
+	Line(Line& a);
+	Line(double, double, double);
 
-	int get_a();
-	int get_b();
-	int get_c();
+	double get_a();
+	double get_b();
+	double get_c();
 	double get_k();
 
 
 	double get_Degrees();
 	double get_Radian();
 
-	int Ox();
-	int Oy();
+	double Ox();
+	double Oy();
 
 	void operator++();
 
 	bool operator||(Line lineToCheckWith);
 
 private:
-	int a, b, c;
+	double a, b, c;
 	double k;
 	double Radian, Degrees;
 
 	double RadianToDegrees();
 	double DegreesToRadian();
-
-
-
 
 };

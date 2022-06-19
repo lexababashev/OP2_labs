@@ -5,48 +5,38 @@
 
 int main()
 {
-	Line line1;
-	cout << "1) 1x - 1y + 0 = 0" << '\n';
-	cout << "Oy: x = 0 "  << " y = " << line1.Ox() << " Ox: x = " << line1.Oy() << " y = 0 "  << '\n';
-
-	int c1; cout << "c = "; cin >> c1;
-	cout << "2) 1x + 1y + "<<c1<<" = 0" << '\n';
-	Line line2(c1);
-	cout << "Oy: x = 0 " << " y = " << line2.Ox() << " Ox: x = " << line2.Oy() << " y = 0 " << '\n';
-
-
-	int a, b, c2; cout << "a = "; cin >> a; cout << "b = "; cin >> b; cout << "c = "; cin >> c2;
-	cout << "2) "<< a <<"x + "<<b << "y + " << c2 <<" = 0" << '\n';
-	Line line3(a, b ,c2);
-	cout << "Oy: x = 0 " << " y = " << line3.Ox() << " Ox: x = " << line3.Oy() << " y = 0 " << '\n' << '\n';
-
-
-	cout << "line3 degrees = " << line3.get_Degrees() << '\n';
-	cout << "k = " << line3.get_k() << '\n';
-	++line3;
-	cout << "line3 degrees = " << line3.get_Degrees() << '\n';
-	cout << "k = " << line3.get_k() << '\n' << '\n';
+	Line P1;
+	cout << "1) 1x - 1y + 1 = 0" << '\n' << '\n';
 
 
 
-	if (line1 || line2)
+	double a, b, c; cout << "a = "; cin >> a; cout << "b = "; cin >> b; cout << "c = "; cin >> c;
+	Line P2(a, b, c);
+	cout << "2) "<< a <<"x + "<<b << "y + " << c <<" = 0" << '\n';
+
+
+
+	if (P1 || P2)
 	{
-		cout << "1 and 2 is paralel" << '\n';
-	}
-	else if(line2 || line3)
-	{
-		cout << "2 and 3 is paralel" << '\n';
-	}
-	else if (line3 || line1)
-	{
-		cout << "3 and 1 is paralel" << '\n';
+		cout << "P1 and P2 is paralel" << '\n' << '\n';
 	}
 	else
 	{
-		cout << "noone is paralel" << '\n';
+		cout << "P1 and P2 is NOT paralel" << '\n' << '\n';
 	}
-	
 
+
+	
+	Line P3(P1);
+	cout << "3) 1x - 1y + 1 = 0" << '\n' << '\n';
+	cout << "line3 degrees = " << P3.get_Degrees() << '\n';
+	cout << "k = " << P3.get_k() << '\n' ;
+	cout << "Ox: (" << P3.Ox() << ";0) " << " Oy: (0; " << P3.Oy() << ")" << '\n' << '\n';
+	++P3;
+	cout << "line3 degrees = " << P3.get_Degrees() << '\n';
+	cout << "k = " << P3.get_k() << '\n' ;
+
+	cout << "Ox: (" << P3.Ox() << ";0) " << " Oy: (0; " << P3.Oy() << ")" << '\n';
 
 }
 
