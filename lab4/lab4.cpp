@@ -1,5 +1,5 @@
 #include "Functions.h"
-
+#include <string>
 
 
 
@@ -8,9 +8,24 @@ int main()
 	Line P1;
 	cout << "1) 1x - 1y + 1 = 0" << '\n' << '\n';
 
+	string sa, sb, sc; 
+	double a, b, c;
+	while (true) {
+		try
+		{
+			cout << "a = "; cin >> sa; cout << "b = "; cin >> sb; cout << "c = "; cin >> sc;
+			a = stod(sa);
+			b = stod(sb);
+			c = stod(sc);
+			break;
+		}
+		catch (const std::exception&)
+		{
+			cout<<"Fail! Try againe!\n";
+		}
+	}
 
-
-	double a, b, c; cout << "a = "; cin >> a; cout << "b = "; cin >> b; cout << "c = "; cin >> c;
+	//double a, b, c; cout << "a = "; cin >> a; cout << "b = "; cin >> b; cout << "c = "; cin >> c;
 	Line P2(a, b, c);
 	cout << "2) "<< a <<"x + "<<b << "y + " << c <<" = 0" << '\n';
 

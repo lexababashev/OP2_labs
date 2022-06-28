@@ -139,11 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Function.cpp" />
+    <ClCompile Include="ASeries.cpp" />
+    <ClCompile Include="GSeries.cpp" />
+    <ClCompile Include="TSeries.cpp" />
     <ClCompile Include="lab5.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Function.h" />
+    <ClInclude Include="ASeries.h" />
+    <ClInclude Include="GSeries.h" />
+    <ClInclude Include="TSeries.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

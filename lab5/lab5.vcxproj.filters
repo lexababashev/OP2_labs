@@ -18,12 +18,24 @@
     <ClCompile Include="lab5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Function.cpp">
+    <ClCompile Include="TSeries.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ASeries.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GSeries.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Function.h">
+    <ClInclude Include="TSeries.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ASeries.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GSeries.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

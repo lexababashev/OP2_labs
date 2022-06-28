@@ -12,8 +12,9 @@ class Line
 {
 public:
 	Line();
-	Line(Line& a);
 	Line(double, double, double);
+	Line(Line& a);
+	
 
 	double get_a();
 	double get_b();
